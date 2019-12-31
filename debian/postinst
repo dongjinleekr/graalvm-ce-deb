@@ -7,7 +7,7 @@ set -e
 
 multiarch=x86_64-linux-gnu
 priority=1089
-basedir=
+basedir=/usr/lib/jvm/graalvm-ce-java8
 
 # summary of how this script can be called:
 #        * <postinst> `configure' <most-recently-configured-version>

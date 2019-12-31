@@ -5,7 +5,7 @@
 
 set -e
 
-basedir=
+basedir=/usr/lib/jvm/graalvm-ce-java8
 
 # summary of how this script can be called:
 #        * <prerm> `remove'
