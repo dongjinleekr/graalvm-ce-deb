@@ -9,7 +9,7 @@ Vcs-Browser: https://github.com/dongjinleekr/graalvm-ce-deb
 
 Package: graalvm-ce-java11
 Priority: optional
-Architecture: 
+Architecture: amd64
 Multi-Arch: same
 Description: GraalVM Community Edition
  GraalVM is a universal virtual machine for running applications written
