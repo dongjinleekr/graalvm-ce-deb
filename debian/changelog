@@ -1,4 +1,4 @@
-graalvm-ce unstable; urgency=medium
+graalvm-ce-java11 unstable; urgency=medium
 
   * Initial release
 

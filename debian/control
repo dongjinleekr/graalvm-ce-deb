@@ -1,4 +1,4 @@
-Source: 
+Source: graalvm-ce-java11
 Maintainer: Lee Dongjin <dongjin@apache.org>
 Build-Depends: debhelper (>=11~)
 Standards-Version: 4.1.4
@@ -7,7 +7,7 @@ Homepage: https://www.graalvm.org/
 Vcs-Git: https://github.com/dongjinleekr/graalvm-ce-deb
 Vcs-Browser: https://github.com/dongjinleekr/graalvm-ce-deb
 
-Package: 
+Package: graalvm-ce-java11
 Priority: optional
 Architecture: 
 Multi-Arch: same
