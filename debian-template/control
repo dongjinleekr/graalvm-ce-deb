@@ -1,0 +1,35 @@
+Package: ${GRAALVM_PACKAGE_NAME}
+Version: ${GRAALVM_VERSION}
+Architecture: ${GRAALVM_ARCHITECTURE}
+Maintainer: Lee Dongjin <dongjin@apache.org>
+Depends: java-common (>= 0.28)
+Section: java, web
+Priority: optional
+Multi-Arch: same
+Homepage: https://www.graalvm.org/
+Vcs-Git: https://github.com/dongjinleekr/graalvm-ce-deb
+Vcs-Browser: https://github.com/dongjinleekr/graalvm-ce-deb
+Description: ${GRAALVM_DESCRIPTION}
+ GraalVM is a universal virtual machine for running applications written
+ in JavaScript, Python, Ruby, R, JVM-based languages like Java, Scala,
+ Groovy, Kotlin, Clojure, and LLVM-based languages such as C and C++.
+ .
+ This package provides all common JDK tools, along with the following additional tools:
+ .
+ .Java Tools
+ .
+ .- jvisualvm: A visualvm implementation for GraalVM.
+ .
+ Javascrtipt Tools
+ .
+ .- js: A high performance implementation of the JavaScript programming language, Built on the GraalVM.
+ .- node: A nodejs implementation built on the GraalVM.
+ .- npm: A package manager for nodejs.
+ .
+ GraalVM Tools
+ .
+ .- gu: GraalVM Component Updater.
+ .- lli: Run LLVM bitcode files on the GraalVM's lli.
+ .- native-image: GraalVM native-image building tool.
+ .- polyglot: GraalVM Native polyglot launcher.
+ .- rebuild-images: Rebuilds native images in place.

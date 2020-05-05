@@ -5,7 +5,7 @@
 
 set -e
 
-basedir=
+basedir=/usr/lib/jvm/${GRAALVM_PACKAGE_NAME}
 
 # summary of how this script can be called:
 #        * <prerm> `remove'

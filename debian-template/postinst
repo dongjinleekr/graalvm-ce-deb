@@ -7,7 +7,11 @@ set -e
 
 multiarch=x86_64-linux-gnu
 priority=1089
-basedir=
+basedir=/usr/lib/jvm/${GRAALVM_PACKAGE_NAME}
+mandir=$basedir/man
+srcext=1.gz
+dstext=1.gz
+jdk_tools='jconsole'
 
 # summary of how this script can be called:
 #        * <postinst> `configure' <most-recently-configured-version>
@@ -32,6 +36,7 @@ case "$1" in
     # update-alternative case 2: multiarch & additional parameter is given but no alternative configured for binaries.
     if [ -n "$multiarch" ] && [ -n "$2" ]; then
         for bin in $basedir/bin/*; do
+            i=$(basename $bin)
             if [ -z "$(update-alternatives --list $i 2>/dev/null | grep ^$basedir/)" ]; then
                 update_alternatives=y
                 break
@@ -52,7 +57,24 @@ case "$1" in
 
     if [ "$update_alternatives" = y ]; then
         for bin in $basedir/bin/*; do
-            update-alternatives --install /usr/bin/$(basename $bin) $(basename $bin) $bin $priority
+            i=$(basename $bin)
+            update-alternatives --install /usr/bin/$i $i $bin $priority $slave1 $slave2
+        done
+
+        for i in $jdk_tools; do
+        unset slave1 slave2 || true
+            if [ -e $mandir/man1/$i.$srcext ]; then
+            slave1="--slave \
+	        /usr/share/man/man1/$i.$dstext \
+                    $i.$dstext \
+                    $mandir/man1/$i.$srcext"
+	    fi
+            if false && [ -e $mandir/ja/man1/$i.$srcext ]; then
+	        slave2="--slave \
+	        /usr/share/man/ja/man1/$i.$dstext \
+                    ${i}_ja.$dstext \
+                    $mandir/ja/man1/$i.$srcext"
+	    fi
         done
     fi
     ;;
