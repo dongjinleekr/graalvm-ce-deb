@@ -9,15 +9,20 @@ if [[ ! " ${ALLOWED_JVM_VERSIONS[@]} " =~ " ${JVM_VERSION} " ]]; then
 fi
 
 ARCHITECTURE=${ARCHITECTURE:-'amd64'}
-ALLOWED_ARCHITECTURES=("amd64")
+ALLOWED_ARCHITECTURES=("amd64" "aarch64")
 
 if [[ ! " ${ALLOWED_ARCHITECTURES[@]} " =~ " ${ARCHITECTURE} " ]]; then
   echo "Unsupported architecture: ${ARCHITECTURE}"
   exit 1
 fi
 
+if [[ "8" == $JVM_VERSION ]] && [[ "aarch64" == ${ARCHITECTURE} ]]; then
+  echo "aarch64 is not supported with JVM 8."
+  exit 1
+fi
+
 export GRAALVM_PACKAGE_NAME=${GRAALVM_PACKAGE_NAME:-"graalvm-ce-java${JVM_VERSION}"}
-export GRAALVM_VERSION=${GRAALVM_VERSION:-'19.3.1'}
+export GRAALVM_VERSION=${GRAALVM_VERSION:-'20.1.0'}
 export RELEASE_VERSION=${RELEASE_VERSION:-'0'}
 export GRAALVM_PACKAGE_VERSION=${GRAALVM_PACKAGE_VERSION:-"${GRAALVM_VERSION}-${RELEASE_VERSION}"}
 export GRAALVM_ARCHITECTURE=${ARCHITECTURE}
