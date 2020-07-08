@@ -1,4 +1,4 @@
-graalvm-ce unstable; urgency=medium
+${GRAALVM_PACKAGE_NAME} (${GRAALVM_PACKAGE_VERSION}) unstable; urgency=medium
 
   * Initial release
 

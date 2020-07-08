@@ -1,0 +1,36 @@
+name=graalvm-ce-java11
+priority=1119
+section=main
+
+hl rmid /usr/lib/jvm/graalvm-ce-java11/bin/rmid
+hl java /usr/lib/jvm/graalvm-ce-java11/bin/java
+hl keytool /usr/lib/jvm/graalvm-ce-java11/bin/keytool
+hl jjs /usr/lib/jvm/graalvm-ce-java11/bin/jjs
+hl pack200 /usr/lib/jvm/graalvm-ce-java11/bin/pack200
+hl rmiregistry /usr/lib/jvm/graalvm-ce-java11/bin/rmiregistry
+hl unpack200 /usr/lib/jvm/graalvm-ce-java11/bin/unpack200
+jdkhl jar /usr/lib/jvm/graalvm-ce-java11/bin/jar
+jdkhl jarsigner /usr/lib/jvm/graalvm-ce-java11/bin/jarsigner
+jdkhl javac /usr/lib/jvm/graalvm-ce-java11/bin/javac
+jdkhl javadoc /usr/lib/jvm/graalvm-ce-java11/bin/javadoc
+jdkhl javap /usr/lib/jvm/graalvm-ce-java11/bin/javap
+jdkhl jcmd /usr/lib/jvm/graalvm-ce-java11/bin/jcmd
+jdkhl jdb /usr/lib/jvm/graalvm-ce-java11/bin/jdb
+jdkhl jdeprscan /usr/lib/jvm/graalvm-ce-java11/bin/jdeprscan
+jdkhl jdeps /usr/lib/jvm/graalvm-ce-java11/bin/jdeps
+jdkhl jimage /usr/lib/jvm/graalvm-ce-java11/bin/jimage
+jdkhl jinfo /usr/lib/jvm/graalvm-ce-java11/bin/jinfo
+jdkhl jlink /usr/lib/jvm/graalvm-ce-java11/bin/jlink
+jdkhl jmap /usr/lib/jvm/graalvm-ce-java11/bin/jmap
+jdkhl jmod /usr/lib/jvm/graalvm-ce-java11/bin/jmod
+jdkhl jps /usr/lib/jvm/graalvm-ce-java11/bin/jps
+jdkhl jrunscript /usr/lib/jvm/graalvm-ce-java11/bin/jrunscript
+jdkhl jshell /usr/lib/jvm/graalvm-ce-java11/bin/jshell
+jdkhl jstack /usr/lib/jvm/graalvm-ce-java11/bin/jstack
+jdkhl jstat /usr/lib/jvm/graalvm-ce-java11/bin/jstat
+jdkhl jstatd /usr/lib/jvm/graalvm-ce-java11/bin/jstatd
+jdkhl rmic /usr/lib/jvm/graalvm-ce-java11/bin/rmic
+jdkhl serialver /usr/lib/jvm/graalvm-ce-java11/bin/serialver
+jdkhl jhsdb /usr/lib/jvm/graalvm-ce-java11/bin/jhsdb
+jdk jconsole /usr/lib/jvm/graalvm-ce-java11/bin/jconsole
+jdk jvisualvm /usr/lib/jvm/graalvm-ce-java11/bin/jvisualvm

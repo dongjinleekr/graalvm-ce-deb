@@ -1,0 +1,48 @@
+name=graalvm-ce-java8
+priority=1089
+section=main
+
+hl rmid /usr/lib/jvm/graalvm-ce-java8/bin/rmid
+hl java /usr/lib/jvm/graalvm-ce-java8/bin/java
+hl keytool /usr/lib/jvm/graalvm-ce-java8/bin/keytool
+hl jjs /usr/lib/jvm/graalvm-ce-java8/bin/jjs
+hl pack200 /usr/lib/jvm/graalvm-ce-java8/bin/pack200
+hl rmiregistry /usr/lib/jvm/graalvm-ce-java8/bin/rmiregistry
+hl unpack200 /usr/lib/jvm/graalvm-ce-java8/bin/unpack200
+hl orbd /usr/lib/jvm/graalvm-ce-java8/bin/orbd
+hl servertool /usr/lib/jvm/graalvm-ce-java8/bin/servertool
+hl tnameserv /usr/lib/jvm/graalvm-ce-java8/bin/tnameserv
+hl jexec /usr/lib/jvm/graalvm-ce-java8/lib/jexec
+jre policytool /usr/lib/jvm/graalvm-ce-java8/bin/policytool
+jdkhl jdeps /usr/lib/jvm/graalvm-ce-java8/bin/jdeps
+jdkhl wsimport /usr/lib/jvm/graalvm-ce-java8/bin/wsimport
+jdkhl rmic /usr/lib/jvm/graalvm-ce-java8/bin/rmic
+jdkhl jinfo /usr/lib/jvm/graalvm-ce-java8/bin/jinfo
+jdkhl jsadebugd /usr/lib/jvm/graalvm-ce-java8/bin/jsadebugd
+jdkhl native2ascii /usr/lib/jvm/graalvm-ce-java8/bin/native2ascii
+jdkhl jstat /usr/lib/jvm/graalvm-ce-java8/bin/jstat
+jdkhl javac /usr/lib/jvm/graalvm-ce-java8/bin/javac
+jdkhl javah /usr/lib/jvm/graalvm-ce-java8/bin/javah
+jdkhl idlj /usr/lib/jvm/graalvm-ce-java8/bin/idlj
+jdkhl clhsdb /usr/lib/jvm/graalvm-ce-java8/bin/clhsdb
+jdkhl jstack /usr/lib/jvm/graalvm-ce-java8/bin/jstack
+jdkhl jrunscript /usr/lib/jvm/graalvm-ce-java8/bin/jrunscript
+jdkhl javadoc /usr/lib/jvm/graalvm-ce-java8/bin/javadoc
+jdkhl javap /usr/lib/jvm/graalvm-ce-java8/bin/javap
+jdkhl jar /usr/lib/jvm/graalvm-ce-java8/bin/jar
+jdkhl xjc /usr/lib/jvm/graalvm-ce-java8/bin/xjc
+jdkhl hsdb /usr/lib/jvm/graalvm-ce-java8/bin/hsdb
+jdkhl schemagen /usr/lib/jvm/graalvm-ce-java8/bin/schemagen
+jdkhl jps /usr/lib/jvm/graalvm-ce-java8/bin/jps
+jdkhl extcheck /usr/lib/jvm/graalvm-ce-java8/bin/extcheck
+jdkhl jmap /usr/lib/jvm/graalvm-ce-java8/bin/jmap
+jdkhl jstatd /usr/lib/jvm/graalvm-ce-java8/bin/jstatd
+jdkhl jhat /usr/lib/jvm/graalvm-ce-java8/bin/jhat
+jdkhl jdb /usr/lib/jvm/graalvm-ce-java8/bin/jdb
+jdkhl serialver /usr/lib/jvm/graalvm-ce-java8/bin/serialver
+jdkhl wsgen /usr/lib/jvm/graalvm-ce-java8/bin/wsgen
+jdkhl jcmd /usr/lib/jvm/graalvm-ce-java8/bin/jcmd
+jdkhl jarsigner /usr/lib/jvm/graalvm-ce-java8/bin/jarsigner
+jdk appletviewer /usr/lib/jvm/graalvm-ce-java8/bin/appletviewer
+jdk jconsole /usr/lib/jvm/graalvm-ce-java8/bin/jconsole
+jdk jvisualvm /usr/lib/jvm/graalvm-ce-java8/bin/jvisualvm
