@@ -1,11 +1,12 @@
 Package: ${GRAALVM_PACKAGE_NAME}
 Version: ${GRAALVM_VERSION}
-Section: java, web
+Section: devel, java, javascript
 Priority: optional
 Architecture: ${GRAALVM_ARCHITECTURE}
 Depends: ca-certificates-java, java-common (>= 0.28)
-Recommends: libxt-dev
-Suggests: visualvm
+Recommends: libxt-dev, nodejs-doc
+Conflicts: nodejs-legacy
+Replaces: nodejs-legacy
 Provides: ${GRAALVM_PACKAGE_PROVIDES}
 Maintainer: Lee Dongjin <dongjin@apache.org>
 Homepage: https://www.graalvm.org/
