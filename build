@@ -67,6 +67,7 @@ if [ ! -d "${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DE
   # Generate debian directory from debian-template
   # https://stackoverflow.com/questions/2914220/bash-templating-how-to-build-configuration-files-from-templates-with-bash
   cp resources/compat ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/compat
+  cp resources/copyright ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/copyright
   cp resources/rules ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/rules
   perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : $&/eg' resources/changelog-template > ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/changelog
   perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : $&/eg' resources/control-template > ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/control

@@ -1,0 +1,12 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Graalvm Community Edition
+Upstream-Contact: https://github.com/oracle/graal
+Source: https://github.com/oracle/graal
+
+Files: *
+Copyright: 2018-2020, Oracle and/or its affiliates
+License: GPL-2 with Classpath exception
+
+Files: debian/*
+Copyright: 2020, Lee Dongjin <dongjin@apache.org>
+License: GPL-2 with Classpath exception
