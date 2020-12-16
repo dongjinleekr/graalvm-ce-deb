@@ -6,7 +6,7 @@ graalvm-ce-deb
 # How to Run
 
 ```sh
-# Build with default settings (Java 8 JVM, amd64 architecture, Version 20.1.0)
+# Build with default settings (Java 8 JVM, amd64 architecture, Version 20.3.0)
 ./build
 
 # Build with specific settings (Java 11 JVM, aarch64 architecture, Version 20.0.0)
@@ -37,7 +37,7 @@ update-java-alternatives --list | awk '{print $1}' | fzf | xargs sudo update-jav
 Note: `update-java-alternatives` only updates jre/jvm related alternatives; non-jvm binaries like `js`, `npm` or `gu` are not updated.
 
 # Installing without existing Java
-This package depends on `ca-certificates-java` which depends on a Java runtime.  
+This package depends on `ca-certificates-java` which depends on a Java runtime.
 GraalVM Java can be installed without a prior Java installation by doing following:
 ```sh
 # Unpack package but don't configure it
