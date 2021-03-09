@@ -45,4 +45,5 @@ jdkhl jcmd /usr/lib/jvm/graalvm-ce-java8/bin/jcmd
 jdkhl jarsigner /usr/lib/jvm/graalvm-ce-java8/bin/jarsigner
 jdk appletviewer /usr/lib/jvm/graalvm-ce-java8/bin/appletviewer
 jdk jconsole /usr/lib/jvm/graalvm-ce-java8/bin/jconsole
+jdk jfr /usr/lib/jvm/graalvm-ce-java8/bin/jfr
 jdk jvisualvm /usr/lib/jvm/graalvm-ce-java8/bin/jvisualvm

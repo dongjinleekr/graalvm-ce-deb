@@ -33,4 +33,5 @@ jdkhl rmic /usr/lib/jvm/graalvm-ce-java11/bin/rmic
 jdkhl serialver /usr/lib/jvm/graalvm-ce-java11/bin/serialver
 jdkhl jhsdb /usr/lib/jvm/graalvm-ce-java11/bin/jhsdb
 jdk jconsole /usr/lib/jvm/graalvm-ce-java11/bin/jconsole
+jdk jfr /usr/lib/jvm/graalvm-ce-java11/bin/jfr
 jdk jvisualvm /usr/lib/jvm/graalvm-ce-java11/bin/jvisualvm
