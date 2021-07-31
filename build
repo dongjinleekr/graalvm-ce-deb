@@ -26,6 +26,10 @@ export GRAALVM_VERSION=${GRAALVM_VERSION:-'21.1.0'}
 export RELEASE_VERSION=${RELEASE_VERSION:-'0'}
 export GRAALVM_PACKAGE_VERSION=${GRAALVM_PACKAGE_VERSION:-"${GRAALVM_VERSION}-${RELEASE_VERSION}"}
 export GRAALVM_ARCHITECTURE=${ARCHITECTURE}
+export GRAALVM_PACKAGE_DIRECTORY=${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}
+export GRAALVM_JVM_DIRECTORY=${GRAALVM_PACKAGE_DIRECTORY}/usr/lib/jvm
+export GRAALVM_META_DIRECTORY=${GRAALVM_PACKAGE_DIRECTORY}/DEBIAN
+export GRAALVM_DEBIAN_PACKAGE=${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_PACKAGE_VERSION}.deb
 if [[ "${JVM_VERSION}" == "8" ]]; then
   export GRAALVM_PACKAGE_PROVIDES='java2-runtime-headless, java5-runtime-headless, java6-runtime-headless, java7-runtime-headless, java8-runtime-headless, java-compiler, java-sdk, java2-sdk, java5-sdk, java6-sdk, java7-sdk, java8-sdk'
 else
@@ -33,7 +37,7 @@ else
 fi
 export GRAALVM_DESCRIPTION=${GRAALVM_DESCRIPTION:-"GraalVM Community Edition (java${JVM_VERSION})"}
 
-echo "Building: ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_PACKAGE_VERSION}.deb"
+echo "Building GRAALVM_DEBIAN_PACKAGE: ${GRAALVM_DEBIAN_PACKAGE}"
 echo ""
 
 echo "Build Parameters:"
@@ -42,13 +46,14 @@ echo "- GRAALVM_PACKAGE_VERSION: ${GRAALVM_PACKAGE_VERSION}"
 echo "- GRAALVM_ARCHITECTURE: ${GRAALVM_ARCHITECTURE}"
 echo "- GRAALVM_PACKAGE_PROVIDES: ${GRAALVM_PACKAGE_PROVIDES}"
 echo "- GRAALVM_DESCRIPTION: ${GRAALVM_DESCRIPTION}"
+echo "- GRAALVM_PACKAGE_DIRECTORY: ${GRAALVM_PACKAGE_DIRECTORY}"
 echo ""
 
-if [ ! -d ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION} ]; then
-  echo "Package Directory does not exist: ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}"
-  mkdir ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}
+if [ ! -d "${GRAALVM_PACKAGE_DIRECTORY}" ]; then
+  echo "Package Directory does not exist: ${GRAALVM_PACKAGE_DIRECTORY}"
+  mkdir ${GRAALVM_PACKAGE_DIRECTORY}
 else
-  echo "Package Directory already exists: ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}"
+  echo "Package Directory already exists: ${GRAALVM_PACKAGE_DIRECTORY}"
 fi
 
 if [ ! -f "${GRAALVM_PACKAGE_NAME}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz" ]; then
@@ -59,44 +64,42 @@ else
   echo "Original tarball already exists: ${GRAALVM_PACKAGE_NAME}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz"
 fi
   
-if [ ! -d "${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN" ]; then
-  echo "Meta Directory does not exist: ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN"
+if [ ! -d "${GRAALVM_META_DIRECTORY}" ]; then
+  echo "Meta Directory does not exist: ${GRAALVM_META_DIRECTORY}"
+  mkdir -p ${GRAALVM_META_DIRECTORY}
 
-  mkdir -p ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN
-  
   # Generate debian directory from debian-template
   # https://stackoverflow.com/questions/2914220/bash-templating-how-to-build-configuration-files-from-templates-with-bash
-  cp resources/compat ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/compat
-  cp resources/copyright ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/copyright
-  cp resources/rules ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/rules
-  perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : $&/eg' resources/changelog-template > ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/changelog
-  perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : $&/eg' resources/control-template > ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/control
-  perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : $&/eg' resources/postinst-template > ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/postinst
-  chmod +x ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/postinst
-  perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : $&/eg' resources/prerm-template > ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/prerm
-  chmod +x ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/prerm
-  echo 'package/* usr/lib/jvm' > ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN/install
+  cp resources/compat ${GRAALVM_META_DIRECTORY}/compat
+  cp resources/copyright ${GRAALVM_META_DIRECTORY}/copyright
+  cp resources/rules ${GRAALVM_META_DIRECTORY}/rules
+  perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : $&/eg' resources/changelog-template > ${GRAALVM_META_DIRECTORY}/changelog
+  perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : $&/eg' resources/control-template > ${GRAALVM_META_DIRECTORY}/control
+  perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : $&/eg' resources/postinst-template > ${GRAALVM_META_DIRECTORY}/postinst
+  chmod +x ${GRAALVM_META_DIRECTORY}/postinst
+  perl -p -e 's/\$\{([^}]+)\}/defined $ENV{$1} ? $ENV{$1} : $&/eg' resources/prerm-template > ${GRAALVM_META_DIRECTORY}/prerm
+  chmod +x ${GRAALVM_META_DIRECTORY}/prerm
+  echo 'package/* usr/lib/jvm' > ${GRAALVM_META_DIRECTORY}/install
 else
-  echo "Meta Directory already exists: ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/DEBIAN"
+  echo "Meta Directory already exists: ${GRAALVM_META_DIRECTORY}"
 fi
 
-if [ ! -d "${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/usr/lib/jvm" ]; then
-  echo "Resource Directory does not exist: ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/usr/lib/jvm"
-  mkdir -p ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/usr/lib/jvm
+if [ ! -d "${GRAALVM_JVM_DIRECTORY}" ]; then
+  echo "Resource Directory does not exist: ${GRAALVM_JVM_DIRECTORY}"
+  mkdir -p ${GRAALVM_JVM_DIRECTORY}
   
   # copy contents
-  tar zxvf ${GRAALVM_PACKAGE_NAME}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz -C ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/usr/lib/jvm
-  mv ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/usr/lib/jvm/${GRAALVM_PACKAGE_NAME}-${GRAALVM_VERSION} ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/usr/lib/jvm/${GRAALVM_PACKAGE_NAME}
+  tar zxvf ${GRAALVM_PACKAGE_NAME}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz -C ${GRAALVM_JVM_DIRECTORY}
+  mv ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}-${GRAALVM_VERSION} ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}
 
   # Add .jinfo
-  cp ./resources/${GRAALVM_PACKAGE_NAME}.jinfo ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/usr/lib/jvm/
+  cp ./resources/${GRAALVM_PACKAGE_NAME}.jinfo ${GRAALVM_JVM_DIRECTORY}/
 else
-  echo "Resource Directory already exists: ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION}/usr/lib/jvm"
+  echo "Resource Directory already exists: ${GRAALVM_JVM_DIRECTORY}"
 fi
 
 # build package
-dpkg-deb -Zgzip -b ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_VERSION} ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_PACKAGE_VERSION}.deb
+dpkg-deb -Zgzip -b ${GRAALVM_PACKAGE_DIRECTORY} ${GRAALVM_DEBIAN_PACKAGE}
 
 # sign with default key
-debsigs --sign=origin ${GRAALVM_PACKAGE_NAME}_${GRAALVM_ARCHITECTURE}_${GRAALVM_PACKAGE_VERSION}.deb
-
+debsigs --sign=origin ${GRAALVM_DEBIAN_PACKAGE}
