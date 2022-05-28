@@ -24,6 +24,17 @@ Description: ${GRAALVM_DESCRIPTION}
  Javascrtipt Tools
  .
  .- js: A high performance implementation of the JavaScript programming language, Built on the GraalVM.
+ .- graal-node: A nodejs implementation built on the GraalVM.
+ .- graal-npm: A package manager for nodejs.
+ .- graal-npx: Executes npm package binaries.
+ .
+ .R Tools
+ .
+ .- graal-R: A GNU-compatible R runtime implementation built on the GraalVM.
+ .
+ .Python Tools
+ .
+ .- graal-python: A high-performance, Python 3.8 compliant runtime implementation built on the GraalVM.
  .
  GraalVM Tools
  .

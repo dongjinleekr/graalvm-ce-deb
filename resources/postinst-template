@@ -60,6 +60,13 @@ case "$1" in
             i=$(basename $bin)
             update-alternatives --install /usr/bin/$i $i $bin $priority $slave1 $slave2
         done
+        
+        update-alternatives --install /usr/bin/python python /usr/bin/python3 1000 $slave1 $slave2
+        update-alternatives --install /usr/bin/python python $basedir/bin/graal-python $priority $slave1 $slave2
+        update-alternatives --install /usr/bin/node node $basedir/bin/graal-node $priority $slave1 $slave2
+        update-alternatives --install /usr/bin/npm npm $basedir/bin/graal-npm $priority $slave1 $slave2
+        update-alternatives --install /usr/bin/npx npx $basedir/bin/graal-npx $priority $slave1 $slave2
+        update-alternatives --install /usr/bin/R R $basedir/bin/graal-R $priority $slave1 $slave2
 
         for i in $jdk_tools; do
         unset slave1 slave2 || true

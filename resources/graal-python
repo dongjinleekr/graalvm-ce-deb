@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+GU=$(which gu)
+
+if [[ -z $GU ]]; then
+  echo "ERROR: Can't find gu."
+  exit 1
+fi
+
+GRAALVM_HOME=$(dirname $(dirname $(dirname $(dirname $(readlink -f $GU)))))
+
+if [[ -f $GRAALVM_HOME/languages/python/bin/graalpython ]]; then
+  $GRAALVM_HOME/languages/python/bin/graalpython $@
+else
+  echo "ERROR: python runtime is not installed yet: run 'gu install python'"
+fi
+

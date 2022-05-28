@@ -24,6 +24,12 @@ case "$1" in
     for bin in $basedir/bin/*; do
         update-alternatives --remove $(basename $bin) $bin
     done
+    
+    update-alternatives --remove python $basedir/bin/graal-python
+    update-alternatives --remove node $basedir/bin/graal-node
+    update-alternatives --remove npm $basedir/bin/graal-npm
+    update-alternatives --remove npx $basedir/bin/graal-npx
+    update-alternatives --remove R $basedir/bin/graal-R
     ;;
 
     failed-upgrade)

@@ -93,6 +93,13 @@ if [ ! -d "${GRAALVM_JVM_DIRECTORY}" ]; then
   # copy contents
   tar zxvf ${GRAALVM_PACKAGE_NAME}-linux-${GRAALVM_ARCHITECTURE}-${GRAALVM_VERSION}.tar.gz -C ${GRAALVM_JVM_DIRECTORY}
   mv ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}-${GRAALVM_VERSION} ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}
+  
+  # copy additional scripts
+  cp ./resources/graal-R ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
+  cp ./resources/graal-node ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
+  cp ./resources/graal-npm ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
+  cp ./resources/graal-npx ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
+  cp ./resources/graal-python ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
 
   # Add .jinfo
   cp ./resources/${GRAALVM_PACKAGE_NAME}.jinfo ${GRAALVM_JVM_DIRECTORY}/
