@@ -4,7 +4,7 @@ Section: devel, java, javascript
 Priority: optional
 Architecture: ${GRAALVM_ARCHITECTURE}
 Depends: ca-certificates-java, java-common (>= 0.28)
-Recommends: libxt-dev, nodejs-doc
+Recommends: libxt-dev, nodejs-doc, r-doc-info, python3-doc
 Provides: ${GRAALVM_PACKAGE_PROVIDES}
 Maintainer: Lee Dongjin <dongjin@apache.org>
 Homepage: https://www.graalvm.org/
