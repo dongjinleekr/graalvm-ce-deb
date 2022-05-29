@@ -6,7 +6,7 @@ graalvm-ce-deb
 # How to Run
 
 ```sh
-# Build with default settings (Java 11 JVM, amd64 architecture, Version 21.2.0)
+# Build with default settings (Java 11 JVM, amd64 architecture, Version 22.1.0)
 ./build
 
 # Build with specific settings (Java 8 JVM, aarch64 architecture, Version 21.0.0)
