@@ -1,7 +1,7 @@
 graalvm-ce-deb
 =====
 
-[Graalvm Community Edition](https://github.com/oracle/graal) Debian package generator.
+This repository provides an offline Debian package builder for Oracle's [Graalvm Community Edition](https://github.com/oracle/graal), with pre-built packages per release. For the online packages seviced via APT repository, see [here](https://github.com/dongjinleekr/graalvm-ce). (You can also see the documentation on the provided binaries there.)
 
 # How to Run
 
@@ -37,8 +37,10 @@ update-java-alternatives --list | awk '{print $1}' | fzf | xargs sudo update-jav
 Note: `update-java-alternatives` only updates jre/jvm related alternatives; non-jvm binaries like `js`, `npm` or `gu` are not updated.
 
 # Installing without existing Java
+
 This package depends on `ca-certificates-java` which depends on a Java runtime.
 GraalVM Java can be installed without a prior Java installation by doing following:
+
 ```sh
 # Unpack package but don't configure it
 dpkg --unpack graalvm-ce-<VERSION>.deb
