@@ -100,6 +100,9 @@ if [ ! -d "${GRAALVM_JVM_DIRECTORY}" ]; then
   cp ./resources/graal-npm ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
   cp ./resources/graal-npx ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
   cp ./resources/graal-python ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
+  cp ./resources/graal-native-image ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
+  cp ./resources/graal-clang ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
+  cp ./resources/graal-clang++ ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
 
   # Add .jinfo
   cp ./resources/${GRAALVM_PACKAGE_NAME}.jinfo ${GRAALVM_JVM_DIRECTORY}/

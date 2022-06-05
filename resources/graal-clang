@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+GU=$(which gu)
+
+if [[ -z $GU ]]; then
+  echo "ERROR: Can't find gu."
+  exit 1
+fi
+
+GRAALVM_HOME=$(dirname $(dirname $(dirname $(dirname $(readlink -f $GU)))))
+LLVM_TOOLCHAIN=$($GRAALVM_HOME/bin/lli --print-toolchain-path)
+
+if [[ -f $LLVM_TOOLCHAIN/clang ]]; then
+  $GRAALVM_HOME/clang $@
+else
+  echo "ERROR: llvm toolchain is not installed yet: run 'gu install llvm-toolchain'"
+fi
+

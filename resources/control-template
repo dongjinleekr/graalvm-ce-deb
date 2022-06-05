@@ -36,10 +36,13 @@ Description: ${GRAALVM_DESCRIPTION}
  .
  .- graal-python: A high-performance, Python 3.8 compliant runtime implementation built on the GraalVM.
  .
+ .LLVM Tools
+ .
+ .- graal-clang
+ .- graal-clang++
+ .
  GraalVM Tools
  .
  .- gu: GraalVM Component Updater.
  .- lli: Run LLVM bitcode files on the GraalVM's lli.
- .- native-image: GraalVM native-image building tool.
- .- polyglot: GraalVM Native polyglot launcher.
- .- rebuild-images: Rebuilds native images in place.
+ .- graal-native-image: GraalVM native-image building tool.
