@@ -67,6 +67,7 @@ case "$1" in
         update-alternatives --install /usr/bin/npm npm $basedir/bin/graal-npm $priority $slave1 $slave2
         update-alternatives --install /usr/bin/npx npx $basedir/bin/graal-npx $priority $slave1 $slave2
         update-alternatives --install /usr/bin/R R $basedir/bin/graal-R $priority $slave1 $slave2
+        update-alternatives --install /usr/bin/wasm wasm $basedir/bin/graal-wasm $priority $slave1 $slave2
 
         for i in $jdk_tools; do
         unset slave1 slave2 || true

@@ -96,6 +96,7 @@ if [ ! -d "${GRAALVM_JVM_DIRECTORY}" ]; then
   
   # copy additional scripts
   cp ./resources/graal-R ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
+  cp ./resources/graal-wasm ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
   cp ./resources/graal-node ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
   cp ./resources/graal-npm ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/
   cp ./resources/graal-npx ${GRAALVM_JVM_DIRECTORY}/${GRAALVM_PACKAGE_NAME}/bin/

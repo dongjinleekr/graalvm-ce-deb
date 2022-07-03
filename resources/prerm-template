@@ -30,6 +30,7 @@ case "$1" in
     update-alternatives --remove npm $basedir/bin/graal-npm
     update-alternatives --remove npx $basedir/bin/graal-npx
     update-alternatives --remove R $basedir/bin/graal-R
+    update-alternatives --remove wasm $basedir/bin/graal-wasm
     ;;
 
     failed-upgrade)

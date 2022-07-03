@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+GRAALVM_HOME=$(dirname $(dirname $(readlink -f $0)))
+
+if [[ -f $GRAALVM_HOME/languages/wasm/bin/wasm ]]; then
+  $GRAALVM_HOME/languages/wasm/bin/wasm $@
+else
+  echo "ERROR: wasm runtime is not installed yet: run 'gu install wasm'"
+fi
+
