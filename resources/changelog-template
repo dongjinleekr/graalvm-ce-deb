@@ -1,5 +1,17 @@
 ${GRAALVM_PACKAGE_NAME} (${GRAALVM_PACKAGE_VERSION}) unstable; urgency=medium
 
+  * Release 22.1.0-2
+
+  - Fix HOME directory logic in graal-variant scrtipts: resolves conflict when using jenv.
+  - Add graal-wasm
+
+  * Release 22.1.0-1
+
+  - Remove nodejs-legacy from Conflicts, Replaces.
+  - Add r-doc-info, python3-doc to Recommends.
+  - Remove description on node, npm; instead, add description on graal-[node,npm,npx,R,python]
+  - Add graal-[native-image,clang,clang++]
+
   * Initial release
 
  -- Lee Dongjin <dongjin@apache.org>  Wed, 1 Jan 2020 12:24:31 +0900
