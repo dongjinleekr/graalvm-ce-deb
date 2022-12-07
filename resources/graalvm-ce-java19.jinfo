@@ -1,0 +1,34 @@
+name=graalvm-ce-java19
+priority=1119
+section=main
+
+hl rmid /usr/lib/jvm/graalvm-ce-java19/bin/rmid
+hl java /usr/lib/jvm/graalvm-ce-java19/bin/java
+hl keytool /usr/lib/jvm/graalvm-ce-java19/bin/keytool
+hl rmiregistry /usr/lib/jvm/graalvm-ce-java19/bin/rmiregistry
+jdkhl jar /usr/lib/jvm/graalvm-ce-java19/bin/jar
+jdkhl jarsigner /usr/lib/jvm/graalvm-ce-java19/bin/jarsigner
+jdkhl javac /usr/lib/jvm/graalvm-ce-java19/bin/javac
+jdkhl javadoc /usr/lib/jvm/graalvm-ce-java19/bin/javadoc
+jdkhl javap /usr/lib/jvm/graalvm-ce-java19/bin/javap
+jdkhl jcmd /usr/lib/jvm/graalvm-ce-java19/bin/jcmd
+jdkhl jdb /usr/lib/jvm/graalvm-ce-java19/bin/jdb
+jdkhl jdeprscan /usr/lib/jvm/graalvm-ce-java19/bin/jdeprscan
+jdkhl jdeps /usr/lib/jvm/graalvm-ce-java19/bin/jdeps
+jdkhl jimage /usr/lib/jvm/graalvm-ce-java19/bin/jimage
+jdkhl jinfo /usr/lib/jvm/graalvm-ce-java19/bin/jinfo
+jdkhl jlink /usr/lib/jvm/graalvm-ce-java19/bin/jlink
+jdkhl jmap /usr/lib/jvm/graalvm-ce-java19/bin/jmap
+jdkhl jmod /usr/lib/jvm/graalvm-ce-java19/bin/jmod
+jdkhl jpackage /usr/lib/jvm/graalvm-ce-java19/bin/jpackage
+jdkhl jps /usr/lib/jvm/graalvm-ce-java19/bin/jps
+jdkhl jrunscript /usr/lib/jvm/graalvm-ce-java19/bin/jrunscript
+jdkhl jshell /usr/lib/jvm/graalvm-ce-java19/bin/jshell
+jdkhl jstack /usr/lib/jvm/graalvm-ce-java19/bin/jstack
+jdkhl jstat /usr/lib/jvm/graalvm-ce-java19/bin/jstat
+jdkhl jstatd /usr/lib/jvm/graalvm-ce-java19/bin/jstatd
+jdkhl serialver /usr/lib/jvm/graalvm-ce-java19/bin/serialver
+jdkhl jhsdb /usr/lib/jvm/graalvm-ce-java19/bin/jhsdb
+jdk jconsole /usr/lib/jvm/graalvm-ce-java19/bin/jconsole
+jdk jfr /usr/lib/jvm/graalvm-ce-java19/bin/jfr
+jdk jvisualvm /usr/lib/jvm/graalvm-ce-java19/bin/jvisualvm
